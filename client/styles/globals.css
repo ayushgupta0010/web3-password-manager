@@ -1,0 +1,14 @@
+body {
+    background: #191919 !important;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 40px;
+    background-color: #131313;
+}
