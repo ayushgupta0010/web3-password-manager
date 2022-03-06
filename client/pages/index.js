@@ -2,15 +2,17 @@ import React, { useContext, useEffect } from "react";
 import { PasswordManagerContext } from "../context/PasswordManagementContext";
 import PasswordsTable from "../components/PasswordsTable";
 import PasswordForm from "../components/PasswordForm";
+import Loading from "../components/Loading";
 
 const Home = () => {
-  const { account, getPasswords, passwords, connectWallet } = useContext(
-    PasswordManagerContext
-  );
+  const { account, getPasswords, passwords, connectWallet, loading } =
+    useContext(PasswordManagerContext);
 
   useEffect(() => {
     getPasswords();
   }, [getPasswords]);
+
+  if (loading) return <Loading />;
 
   if (!account) {
     return (

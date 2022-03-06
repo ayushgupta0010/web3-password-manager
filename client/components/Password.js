@@ -15,10 +15,7 @@ const Password = ({ _index, _url, _username, _password }) => {
   const { updatePassword } = useContext(PasswordManagerContext);
 
   const save = () => {
-    updatePassword(_index, url, username, password).then(() => {
-      setDefaultData({ url, username, password });
-      setEditMode(false);
-    });
+    updatePassword(_index, url, username, password);
   };
 
   const cancel = () => {
