@@ -10,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     getPasswords();
-  }, [account, getPasswords]);
+  }, [getPasswords]);
 
   if (!account) {
     return (

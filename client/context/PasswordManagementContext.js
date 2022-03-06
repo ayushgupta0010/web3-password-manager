@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useCallback, useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { contractABI, contractAddress } from "../lib/constants";
 
@@ -54,11 +54,11 @@ export const PasswordManagerProvider = ({ children }) => {
     getPasswords();
   };
 
-  const getPasswords = async () => {
+  const getPasswords = useCallback(async () => {
     if (!account) return;
     const contract = getEthereumContract();
     setPasswords(await contract.getPasswords());
-  };
+  }, [account]);
   // Contract methods ends here
 
   useEffect(() => {
